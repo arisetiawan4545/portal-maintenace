@@ -137,8 +137,13 @@ export default function QCDashboard() {
   const [newProgInput, setNewProgInput] = useState("");
   const [newBranchInput, setNewBranchInput] = useState("");
 
-  // Interactive Calendar States
-  const [calendarMonth, setCalendarMonth] = useState(new Date());
+
+ // Interactive Calendar States
+const [calendarMonth, setCalendarMonth] = useState<Date>(() => new Date(2026, 0, 1));
+
+useEffect(() => {
+  setCalendarMonth(new Date());
+}, []);
   const [selectedDateFilter, setSelectedDateFilter] = useState<string | null>(
     null
   );
